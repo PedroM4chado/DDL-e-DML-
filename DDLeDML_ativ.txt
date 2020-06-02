@@ -1,0 +1,155 @@
+teste
+
+cd..
+cd..
+cd xampp
+cd mysql
+cd bin
+mysql -u root
+create database redacao;
+use redacao;
+create table aluno;
+show tables;
+describe aluno;
+create database biblioteca;
+create database recursoshumanos;
+show databases;
+use biblioteca;
+crate table livro(
+idlivro int primary key auto_increment,
+livro varchar(255),
+autor varchar(255)
+);
+decribe livro;
+create database veterinaria;
+use veterinaria;
+create table animal(
+idanimal int primary key auto_increment,
+nomeAnimal varchar(255)
+raca varchar(255)
+);
+show tables;
+describe animal;
+drope table animal;
+show tables;
+create database farmacia;
+use farmacia;
+create table cliente(
+rua varchar(255),
+numero varchar(255),
+complemento varchar(255),
+bairro varchar(255),
+cidade varchar(255),
+ud char(2),
+CEP varchar(255),
+nome varchar(255),
+email varchar(255),
+dataNascimento date,
+rg varchar (255),
+cpf varchar(200) unique,
+cnh varchar(200) unique,
+telefone varchar(100),
+codCliente int primary key auto_increment); 
+show tables;
+describe cliente;
+use biblioteca;
+drop database biblioteca;
+use veterinaria
+create table animal(
+idAnimal int primary key auto_increment,
+nomeAnimal varchar(255),
+raca varchar (255)
+);
+show tables;
+rename table animal to animais;
+show tables;
+alter table animais add column cor varchar(255);
+describe animais;
+alter table animais drop column cor;
+describe animais;
+drop database veterinaria;
+show databases;
+create database veterinaria;
+use veterinaria;
+create table dono(
+coddono int PRIMARY KEY AUTO_INCREMENT,
+nome varchar(255),
+cpf varchar(20) unique,
+telefone varchar(20)
+email varchar(20)
+uf char(2)
+logradouro varchar(255)
+numCasa varchar(255)
+);
+create table animal(
+idanimal int PRIMARY KEY AUTO_INCREMENT,
+nome varchar(255),
+raca varchar(255),
+peso decimal(7,2),
+dono int,
+FOREIGN KEY(dono)references dono(coddono)
+);
+
+insert into dono (nome,telefone,cpf,email,uf,logradouro,numCasa) VALUES
+1("Ronaldo Santos","11-4245-2347","284.123.453.84","RonaldoSant@hotmail.com","SP","Rua Nazareno Romaldini","237")
+2("Claudia Ferraz","11-4827-5674","234.567.890.38","Claudinhanovinha@gmail.com","SP","Rua dos pinherais","345")
+3("Ruthiana Cordeiro","11-4678-3451","567.231.678.67","ProfRuthiana@yahoo.com.br","SP","vale dos coqueiros","478")
+
+insert into animal(nome,peso,raca,dono) VALUES
+1('Koly',39,'Labrador',3),
+2('Tobby',7,'Pudlle',2),
+3('Zézé',35,'Pastor',1),
+4('Nutella',47,'Pitbull',1),
+5('Brnquelo',5,'Pincher',2);
+
+alter table animal add column tipoAnimal varchar(255);
+
+update animal set tipoAnimal= 'Cachorro' where idanimal=1
+update animal set tipoAnimal= 'Cachorro' where idanimal=2
+update animal set tipoAnimal= 'Cachorro' where idanimal=3
+update animal set tipoAnimal= 'Cachorro' where idanimal=4
+update animal set tipoAnimal= 'Cachorro' where idanimal=5
+update animal set peso= 30 where idanimal= 3;
+delete from animal where nome= "Zézé";
+show tables;
+describe animal;
+describe dono;
+
+
+
+
+
+
+
+
+CREATE DATABASE concessionaria
+
+USE concessionaria
+
+CREATE TABLE veiculo(
+codveiculo int primary key auto_increment,
+marca varchar(255),
+modelo varchar(255),
+anoFabricacao int,
+anoModelo int,
+combustivel char(1)
+)
+
+Alter Table veiculo valor decimal(7,2);
+Alter Table veiculo motor varchar(255);
+Alter table veiculo drop column motor;
+Drope table veiculo;
+Drop database;
+
+
+
+
+
+
+
+
+
+
+
+OBS: está dando alguns erros mas nunca são no mesmo lugar 
+e os codigos são sempre os mesmos
