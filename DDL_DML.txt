@@ -1,0 +1,97 @@
+Create DATABASE biblioteca;
+
+USE biblioteca;
+
+CREATE TABLE bibliotecario (
+codBibliotecario int PRIMARY KEY auto_increment,
+email varchar(255),
+nome varchar(255),
+datanasc date,
+rg varchar(255),
+cpf varchar(255),
+telefone varchar(255),
+logradouro varchar(255),
+num varchar(255),
+complemento varchar(255),
+bairro varchar(255),
+cidade varchar(255),
+uf char(2),
+cep varchar(255),
+dataNascimento date
+);
+
+CREATE TABLE livro (
+titulo varchar(255),
+codLivro int PRIMARY KEY auto_increment,
+autor varchar(255),
+editora varchar(255),
+genero varchar(255)
+);
+
+CREATE TABLE aluno (
+ra int PRIMARY KEY auto_increment,
+nome varchar(255),
+telefone varchar(255),
+dataNascimento date,
+email varchar(255),
+turma char(2),
+cpf varchar(255) unique,
+uf char(2),
+logradouro varchar(255),
+numCasa varchar(200), 
+tuma char(2)
+);
+
+CREATE TABLE emprestimo_devolucao (
+codEmprestimo int PRIMARY KEY auto_increment,
+data_empretimo date,
+data_devolucao date,
+FOREIGN KEY(codLivro) REFERENCES livro (codLivro),
+FOREIGN KEY(codBibliotecario) REFERENCES bibliotecario (codBibliotecario),
+FOREIGN KEY(ra) REFERENCES aluno (ra),
+codLivro int,
+codBibliotecario int,
+ra int
+);
+
+insert into aluno(nome,telefone,cpf,email,uf,logradouro,numCasa,turma,dataNascimento) VALUES
+('Ronaldo Santos','11-4245-2347','284.123.453.84','RonaldoSant@hotmail.com','SP','Rua Nazareno Romaldini','237','1A','2005-05-16'),
+('Claudia Ferraz','11-4827-5674','234.567.890.38','Claudinhanovinha@gmail.com','SP','Rua dos pinherais','345','1F','2005-04-30'),
+('Ruthiana Cordeiro','11-4678-3451','567.231.678.67','Ruthiana94@yahoo.com.br','SP','vale dos coqueiros','478','1C','2005-09-08'),
+('Adalberto Dontorio','11-4823-5673','328.843.463.98','AdalbertoReidelas@yahoo.com.br','SP','Avenida Francisco Monteiro','184','1C','2005-10-25'),
+('Lorena Chaila','11-4658-7204','156.448.648.84','Lolalolo@gmail.com','SP','Rua Antonio Carmunhega','1247','2B','2004-01-01'),
+('Claudenir Rusbé','11-4544-7841','132.788.455.63','RusbéClaudenir@gmail.com','SP','Avenida Brasil','24','1C','2005-05-25'),
+('Cleber Jenilson','11-4875-6789','129.465.456.74','Clebinho@hotmail.com','SP','Vale Do Camuci','64','2B','2004-12-16'),
+('Maria Souza','11-4598-8655','178.852.458.65','MariaSoso@gmail.com','SP','Rua dos Navegadores','145','1F','2005-03-14'),
+('Daniela Silva','11-4658-4562','156.158.456.48','Danizinha23@gmail.com','SP','Rua Elentari','327','1A','2005-11-24'),
+('João Sampaio','11-4586-4253','156.158.954.98','JoaoSampa@Yahoo.com.br','SP','Av Pref Valdirio Prisco','845','3B','2003-05-23');
+
+insert into bibliotecario (nome ,cidade ,email ,cpf ,dataNascimento) VALUES
+('Jennifer Sophia','Maua','JenniferSophia@gmail.com','323.444.555-21','1980-10-21'),
+('Denilson Santana','Rio Grande','Santanao@gmail.com','313.454.154-21','1980-10-18'),
+('Thiago Melo','Ribeirão Pires','thiago34@Yahoo.com.br','213.424.253-21','1980-06-08'),
+('Denis Santori','Ribeirão Pires','denisSartori@Hotmail.com','283.354.235-11','1980-09-12');
+
+insert into livro (titulo ,autor ,editora ,genero) VALUES
+('Apagao','Joseph Tyler','Saraiva','Suspense'),
+('A noite clara','Giana Duarte','Saraiva','Romance'),
+('O Grito','Gilberto Humer','Saraiva','Terror'),
+('O Assombrado','Gustavo Djan','Saraiva','Terror'),
+('A Mente Iluminada','Pedro LeAndre','Saraiva','Ciencia'),
+('A Rosa Negra','Daria Rosa','Saraiva','Romance'),
+('10 Milhas','Eminem','Saraiva','Biografia'),
+('O Segredo','Eliza Human','Saraiva','Suspense'),
+('A Corrida de 10km','Juan DeLore','Saraiva','Biografia'),
+('Cadê você Bernadette?','Maria Semple','Companhia das Letras','comédia');
+
+insert into emprestimo_devolucao (codBibliotecario ,codlivro ,data_devolucao ,data_emprestimo ,ra) VALUES
+(3,1,'2020-08-11','2020-03-11',1),
+(4,3,'2020-07-28','2020-03-18',2),
+(12,4,'2020-04-11','2020-03-11',3),
+(2,2,'2020-04-12','2020-03-12',4),
+(3,3,'2020-04-13','2020-03-13',5),
+(3,5,'2020-04-18','2020-03-18',6),
+(3,6,'2020-04-15','2020-03-15',7),
+(4,7,'2020-04-16','2020-03-16',8),
+(3,2,'2020-05-17','2020-03-17',9),
+(1,1,'2020-04-22','2020-03-22',10);
